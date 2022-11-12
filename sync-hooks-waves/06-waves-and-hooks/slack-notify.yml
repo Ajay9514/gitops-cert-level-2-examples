@@ -4,7 +4,9 @@ metadata:
   namespace: example06
   generateName: slack-notify-
   labels:
-    codefresh.io/cert: slack-job  
+    codefresh.io/cert: slack-job
+   annotations:
+    argocd.argoproj.io/postsync-wave: "30" 
 spec:
   template:
     spec:
@@ -13,6 +15,6 @@ spec:
         image: alpine
         command:
           - "sleep"
-          - "30"
+          - "3"
       restartPolicy: Never
   backoffLimit: 2    
